@@ -1,0 +1,71 @@
+<div id="gen_loginContainer" class="container">
+    <div class="row">
+        <div id="panell" class="col s6 xl6  offset-s3 offset-xl3 z-depth-1">
+            <h5 id="title" class="">Universidad de Caldas</h5>
+
+            <div id="log_loading" class="preloader-wrapper big active" *ngIf="isLoggedIn">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!isLoggedIn">
+                <img id="log_image" src="https://sibcolombia.net/wp-content/uploads/2016/06/logo-ucaldas.png">
+            </div>
+
+            <form *ngIf="!isLoggedIn" name="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group input-field loginField">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" formControlName="username" />
+
+                    <div *ngIf="GetForm['username'].errors && (GetForm['username'].dirty || GetForm['username'].touched)"
+                        class="">
+                        <span *ngIf="GetForm['username'].errors['required']"
+                            class="invalid-feedback red-text darken-1x">
+                            The username is required
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group input-field loginField">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" name="password" formControlName="password" />
+                    <div *ngIf="GetForm['password'].errors && (GetForm['password'].dirty || GetForm['password'].touched)"
+                        class="">
+                        <span *ngIf="GetForm['password'].errors['required']"
+                            class="invalid-feedback red-text darken-1x">
+                            The password is required
+                        </span>
+
+                    </div>
+                </div>
+
+                <!--<span *ngIf="f.submitted && isLoginFailed"
+                    class="alert alert-danger loginField red-text darken-1 invalid-feedback" role="alert">
+                    {{ errorMessage }}
+                </span>-->
+
+                <div class="form-group">
+                    <button [disabled]="GetForm['username'].errors || GetForm['password'].errors" type="button"
+                        id="loginbtn" class="btn teal darken-1 btn-block" (click)="onSubmit()">
+                        Login
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

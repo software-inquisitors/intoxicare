@@ -1,0 +1,33 @@
+#head_navbar {
+    margin-bottom: 2%;
+}
+
+#head_navbar>.nav-wrapper {
+    background-color: #002955;
+}
+
+.brand-logo {
+    width: 25%;
+    height: 100%;
+}
+
+#hea_navLogo {
+    width: 100%;
+    height: 100%;
+    background-position-y: 42%;
+    background-size: 100% 142%;
+    background-image: url(https://www.ucaldas.edu.co/portal/wp-content/uploads/2024/03/09-Logo-y-nombre-derecha-blanco.png);
+}
+
+.brand-logo {
+    padding-left: 5%;
+}
+
+@media screen and (min-width: 1350px) {
+
+    .brand-logo {
+        width: 11%;
+        height: 100%;
+    }
+
+}

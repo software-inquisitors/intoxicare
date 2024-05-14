@@ -1,0 +1,68 @@
+#panell {
+    padding: 0px;
+}
+
+#log_loading {
+    position: relative;
+    left: 45%;
+    width: 4vw;
+    height: 4vw;
+}
+
+#log_image {
+    position: relative;
+    left: 25%;
+    width: 50%;
+}
+
+#loginbtn {
+    width: 80%;
+    margin: 2% 10%;
+    background-color: #002955 !important;
+}
+
+#title {
+    color: white;
+    padding: 8px;
+    margin-top: 0px;
+    background-color: #002955;
+}
+
+form {
+    padding: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.loginField {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#checkbox {
+    margin-left: 30px;
+}
+
+@media screen and (min-width: 1350px) {
+
+    #gen_loginContainer {
+        min-height: 86vh;
+    }
+
+    #panell {
+        margin-top: 12vh;
+    }
+
+    .loginField {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+
+    #log_image {
+        position: relative;
+        left: 33%;
+        width: 34%;
+    }
+
+}
