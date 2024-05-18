@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/graph/graph.module").then(x => x.AdminModule)
   },
   {
+    path: "user",
+    loadChildren: () => import("./modules/user/user.module").then(x => x.UserModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
