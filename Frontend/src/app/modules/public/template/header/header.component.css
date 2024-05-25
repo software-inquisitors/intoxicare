@@ -24,10 +24,26 @@
 }
 
 @media screen and (min-width: 1350px) {
-
     .brand-logo {
         width: 11%;
         height: 100%;
     }
+}
 
+ul#nav-mobile {
+    float: right;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul#nav-mobile li {
+    list-style: none;
+}
+
+ul#nav-mobile li a {
+    color: white;
+    padding: 0 15px;
+    display: block;
+    line-height: 64px; 
 }

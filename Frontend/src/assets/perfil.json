@@ -1,0 +1,84 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"张三",
+            "age":18,
+            "peso": 60,
+            "altura": 1.70,
+            "genero": "M",
+            "imc": "20.76",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":2,
+            "name":"李四",
+            "age":20,
+            "peso": 70,
+            "altura": 1.80,
+            "genero": "M",
+            "imc": "21.60",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":3,
+            "name":"王五",
+            "age":22,
+            "peso": 80,
+            "altura": 1.90,
+            "genero": "M",
+            "imc": "22.16",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":4,
+            "name":"赵六",
+            "age":24,
+            "peso": 90,
+            "altura": 2.00,
+            "genero": "M",
+            "imc": "22.50",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":5,
+            "name":"小明",
+            "age":26,
+            "peso": 100,
+            "altura": 2.10,
+            "genero": "M",
+            "imc": "22.67",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":6,
+            "name":"小红",
+            "age":28,
+            "peso": 110,
+            "altura": 2.20,
+            "genero": "M",
+            "imc": "22.73",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":7,
+            "name":"小刚",
+            "age":30,
+            "peso": 120,
+            "altura": 2.30,
+            "genero": "M",
+            "imc": "22.73",
+            "foto": "assets/images/foto.png"
+        },
+        {
+            "id":8,
+            "name":"小强",
+            "age":32,
+            "peso": 130,
+            "altura": 2.40,
+            "genero": "M",
+            "imc": "22.67",
+            "foto": "assets/images/foto.png"
+        }
+    ]
+}

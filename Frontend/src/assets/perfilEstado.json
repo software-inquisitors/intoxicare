@@ -1,0 +1,33 @@
+{
+    "data": [
+        {
+            "EstadoId": 1,
+            "Estado": "Revisado"
+        },
+        {
+            "EstadoId": 2,
+            "Estado": "Diseñado"
+        },
+        {
+            "EstadoId": 3,
+            "Estado": "Codificado"
+        },
+        {
+            "EstadoId": 4,
+            "Estado": "Probado"
+        },
+        {
+            "EstadoId": 5,
+            "Estado": "Aprobado"
+        },
+        {
+            "EstadoId": 6,
+            "Estado": "Desplegado"
+        },
+        {
+            "EstadoId": 7,
+            "Estado": "Cancelado o eliminado"
+        }
+        
+    ]
+}
