@@ -29,10 +29,11 @@
                         <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>
                         Intoxicaciones
                     </a>
-                    <a class="collection-item mdl-navigation__link" href="">
+
+                    <!-- <a class="collection-item mdl-navigation__link" href="">
                         <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>
                         Trash
-                    </a>
+                    </a> -->
                     <!-- <a class="collection-item mdl-navigation__link" href=""><i
                             class="mdl-color-text--blue-grey-400 material-icons"
                             role="presentation">report</i>Spam</a>
@@ -60,11 +61,15 @@
                 </div>
             </div>
         </div>
+
+        <!-- ====================================
+        Interfaz del home de dashboard 
+        ==================================== -->
         <div class="main-content col s9 offset-s3">
             <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
                 <nav>
                     <div class="nav-wrapper">
-                        <a href="#" class="brand-logo">Home</a>
+                        <a href="#" class="brand-logo">DASHBOARD INTOXICARE</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a href="#"><i class="material-icons">search</i></a></li>
                             <li><a href="#"><i class="material-icons right">more_vert</i></a></li>
@@ -86,15 +91,18 @@
                                                 </tspan></text>
                                         </svg>
                                     </div>
+
                                     <div class="col s3">
                                         <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1"
                                             class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
                                             <use xlink:href="#piechart" mask="url(#piemask)" />
                                             <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888"
-                                                text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%
-                                                </tspan></text>
+                                                text-anchor="middle" dy="0.1">60<tspan dy="-0.07" font-size="0.2">%
+                                                </tspan>
+                                            </text>
                                         </svg>
                                     </div>
+
                                     <div class="col s3">
                                         <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1"
                                             class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
@@ -141,17 +149,17 @@
                                                 <div
                                                     class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
                                                     <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-                                                        <h2 class="card-title mdl-card__title-text">Updates</h2>
+                                                        <h2 class="card-title mdl-card__title-text">Plan</h2>
                                                     </div>
                                                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                                                        Non dolore elit adipisicing ea reprehenderit consectetur
-                                                        culpa.
+                                                        Plan de intoxicaciones.
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-action mdl-card__actions mdl-card--border">
-                                                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read
-                                                    More</a>
+                                                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                                    Leer más
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +170,7 @@
                                             class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
                                             <div class="card mdl-card__supporting-text mdl-color-text--blue-grey-50">
                                                 <div class="card-content">
-                                                    <h3 class="card-title">View options</h3>
+                                                    <h3 class="card-title">Lista Intoxicaciones</h3>
                                                     <form>
                                                         <ul>
                                                             <li>
@@ -171,7 +179,8 @@
                                                                     <input type="checkbox" checked="checked"
                                                                         id="chkbox1" class="mdl-checkbox__input">
                                                                     <span class="mdl-checkbox__label">
-                                                                        Click per object</span>
+                                                                        Intoxicación por alimento
+                                                                    </span>
                                                                 </label>
                                                             </li>
                                                             <li>
@@ -180,7 +189,8 @@
                                                                     <input type="checkbox" checked="checked"
                                                                         id="chkbox2" class="mdl-checkbox__input">
                                                                     <span class="mdl-checkbox__label">
-                                                                        Views per object</span>
+                                                                        Intoxicación por alcohol
+                                                                    </span>
                                                                 </label>
                                                             </li>
                                                             <li>
@@ -189,7 +199,8 @@
                                                                     <input type="checkbox" checked="checked"
                                                                         id="chkbox3" class="mdl-checkbox__input">
                                                                     <span class="mdl-checkbox__label">
-                                                                        Objects selected</span>
+                                                                        Intoxicación por medicamentos
+                                                                    </span>
                                                                 </label>
                                                             </li>
                                                             <li>
@@ -198,7 +209,8 @@
                                                                     <input type="checkbox" checked="checked"
                                                                         id="chkbox4" class="mdl-checkbox__input">
                                                                     <span class="mdl-checkbox__label">
-                                                                        Objects viewed</span>
+                                                                        Intoxicación por drogas
+                                                                    </span>
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -237,6 +249,7 @@
         </g>
     </defs>
 </svg>
+
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 250"
     style="position: fixed; left: -1000px; height: -1000px;">
     <defs>
@@ -273,14 +286,15 @@
                     font-size="9">7</text>
             </g>
             <g id="Layer_5">
-                <polygon opacity="0.36" stroke-miterlimit="10" points="0,223.3 48,138.5 154.7,169 211,88.5
-        294.5,80.5 380,165.2 437,75.5 469.5,223.3 	" />
+                <polygon opacity="0.36" stroke-miterlimit="10"
+                    points="0,223.3 48,138.5 154.7,169 211,88.5 294.5,80.5 380,165.2 437,75.5 469.5,223.3 	" />
             </g>
             <g id="Layer_4">
-                <polygon stroke-miterlimit="10" points="469.3,222.7 1,222.7 48.7,166.7 155.7,188.3 212,132.7
-        296.7,128 380.7,184.3 436.7,125 	" />
+                <polygon stroke-miterlimit="10"
+                    points="469.3,222.7 1,222.7 48.7,166.7 155.7,188.3 212,132.7 296.7,128 380.7,184.3 436.7,125 " />
             </g>
         </g>
     </defs>
 </svg>
-<a href="#" target="_blank" id="view-source" class="btn">View Source</a>
+
+<!-- <a href="#" target="_blank" id="view-source" class="btn">View Source</a> -->
