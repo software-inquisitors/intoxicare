@@ -6,11 +6,7 @@ import { HttpsServiceService } from '../../../services/https-service.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
-/**
- * 
- */
 declare const M: any;
-
 
 @Component({
   selector: 'app-dashboard',
