@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\TypeIntoxication;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class TypeIntoxicationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Category::factory(10)->create();
+        TypeIntoxication::factory(5)->create();
     }
 }

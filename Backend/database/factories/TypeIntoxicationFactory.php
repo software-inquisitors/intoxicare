@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TypeIntoxication>
  */
-class CategoryFactory extends Factory
+class TypeIntoxicationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(2),
+            'name' => $this->faker->name(),
             'description' => $this->faker->paragraph,
-            'creationDate' => $this->faker->date(),
-            'available' => $this->faker->boolean()
         ];
     }
 }

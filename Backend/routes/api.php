@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CarroController;
-use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\IntoxicationController;
+use App\Http\Controllers\Api\TypeIntoxicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\Api\CategoryController;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('Carro', CarroController::class)->middleware('auth:sanctum');
-    Route::apiResource('Category', CategoryController::class)->middleware('auth:sanctum');
+    Route::apiResource('Patient', PatientController::class)->middleware('auth:sanctum');
+    Route::apiResource('Intoxication', IntoxicationController::class)->middleware('auth:sanctum');
+    Route::apiResource('TypeIntoxication', TypeIntoxicationController::class)->middleware('auth:sanctum');
 });

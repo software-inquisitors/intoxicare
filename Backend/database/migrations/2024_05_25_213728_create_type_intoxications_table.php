@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('type_intoxications', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->mediumText('description');
-            $table->date('creationDate');
-            $table->boolean('available');
+            $table->string('name')->default("Intoxicación Indefinida")->length(100);
+            $table->string('description')->length(1000);
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('type_intoxications');
     }
 };
