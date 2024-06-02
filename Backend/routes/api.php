@@ -17,8 +17,6 @@ use App\Http\Controllers\Api\TypeIntoxicationController;
 |
 */
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('Patient', PatientController::class)->middleware('auth:sanctum');
-    Route::apiResource('Intoxication', IntoxicationController::class)->middleware('auth:sanctum');
-    Route::apiResource('TypeIntoxication', TypeIntoxicationController::class)->middleware('auth:sanctum');
-});
+Route::apiResource('Patient', PatientController::class);
+Route::apiResource('Intoxication', IntoxicationController::class);
+Route::apiResource('TypeIntoxication', TypeIntoxicationController::class);

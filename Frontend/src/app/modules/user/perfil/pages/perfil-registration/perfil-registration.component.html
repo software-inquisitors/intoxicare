@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col s12 right-align">
-                <a class="btn-small waves-effect waves-light green" (click)="isListView = !isListView">{{isListView ? 'New':'List'}}</a>
+                <a class="btn-small waves-effect waves-light green" (click)="isListView = !isListView">{{isListView ?
+                    'New':'List'}}</a>
             </div>
         </div>
         <div *ngIf="isListView" class="row">
@@ -12,24 +13,16 @@
                         <tr>
                             <th>Sr no</th>
                             <th>Name</th>
-                            <th>Age</th>
-                            <th>Peso</th>
-                            <th>Altura</th>
-                            <th>Genero</th>
-                            <th>Estado</th>
-                            <th>Foto</th>
+                            <th>Email</th>
+                            <th>Created</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let perf of perfil; let sr=index">
-                            <td>{{sr+1}}</td>
-                            <td>{{perf.Name}}</td>
-                            <td>{{perf.Age}}</td>
-                            <td>{{perf.Peso}}</td>
-                            <td>{{perf.Altura}}</td>
-                            <td>{{perf.Genero}}</td>
-                            <td>{{perf.Estado}}</td>
-                            <td><img [src]="perf.Foto" alt="Foto" class="responsive-img" style="max-width: 50px; max-height: 50px;"></td>
+                            <td>{{perf.id}}</td>
+                            <td>{{perf.name}}</td>
+                            <td>{{perf.email}}</td>
+                            <td>{{perf.created_at}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,7 +64,8 @@
                             <div class="input-field col s6">
                                 <select>
                                     <option value="">Estado</option>
-                                    <option *ngFor="let perfilEstado of perfilE" [value]="perfilEstado.EstadoId">{{perfilEstado.Estado}}</option>
+                                    <option *ngFor="let perfilEstado of perfilE" [value]="perfilEstado.EstadoId">
+                                        {{perfilEstado.Estado}}</option>
                                 </select>
                             </div>
                         </div>

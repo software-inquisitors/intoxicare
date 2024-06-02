@@ -1,5 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
+
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { HttpsServiceService } from '../../../../../services/https-service.service';
 
 @Component({
   selector: 'app-perfil-registration',
@@ -11,32 +15,29 @@ export class PerfilRegistrationComponent implements OnInit {
   perfil: any[] = [];
   isListView: boolean = true;
   perfilObject: any = {
-    "name":"",
-    "age":0,
+    "name": "",
+    "age": 0,
     "peso": 0,
     "altura": 0,
     "genero": "",
     "imc": "",
-    "foto": ""           
+    "foto": ""
   };
-  constructor(private http: HttpClient) { }
+  constructor(
+    private _ac: ActivatedRoute,
+    private _apiService: HttpsServiceService) { }
 
   ngOnInit(): void {
-    this.loadPerfilEstado();
     this.loadPerfil();
   }
 
-  loadPerfilEstado() {
-    this.http.get('assets/perfilEstado.json').subscribe((res: any) => {
-      
-      this.perfilE = res.data;
-    })
-  }
 
-  loadPerfil(){
-    this.http.get('assets/perfil.json').subscribe((res: any) => {
-      debugger;
-      this.perfil = res.data;
-    })
+  loadPerfil() {
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestGet("api/Patient"))
+    ).subscribe((response) => {
+      this.perfil = response.data;
+      console.log(this.perfil)
+    });
   }
 }
