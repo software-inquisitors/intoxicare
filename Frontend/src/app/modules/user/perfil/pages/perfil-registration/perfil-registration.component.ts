@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpsServiceService } from '../../../../../services/https-service.service';
+import { PerfilFormComponent } from '../perfil-form/perfil-form.component';
+
 
 @Component({
   selector: 'app-perfil-registration',
@@ -14,24 +16,18 @@ export class PerfilRegistrationComponent implements OnInit {
   perfilE: any[] = [];
   perfil: any[] = [];
   isListView: boolean = true;
-  perfilObject: any = {
-    "name": "",
-    "age": 0,
-    "peso": 0,
-    "altura": 0,
-    "genero": "",
-    "imc": "",
-    "foto": ""
-  };
+  
+  
   constructor(
     private _ac: ActivatedRoute,
     private _apiService: HttpsServiceService) { }
 
   ngOnInit(): void {
     this.loadPerfil();
+    
   }
 
-
+  
   loadPerfil() {
     this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/Patient"))
@@ -39,5 +35,9 @@ export class PerfilRegistrationComponent implements OnInit {
       this.perfil = response.data;
       console.log(this.perfil)
     });
-  }
+  } 
+
+  
+
+  
 }

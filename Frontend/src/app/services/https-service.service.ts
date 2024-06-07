@@ -49,4 +49,16 @@ export class HttpsServiceService {
   requestDelete(routeRequest: String): Observable<any> {
     return this._http.delete(`${this.serverUrl}` + routeRequest);
   }
+
+  /**
+   * function dynamic to put request
+   * @param routeRequest {String} final route of the request   
+   * @param paramBody {Json} Body petition
+   * @returns Promise
+   * @author AlejandroGonzalez0
+   * @version 1.0 
+   */
+  requestPut(routeRequest: String, paramBody: Object): Observable<any> {
+    return this._http.put(`${this.serverUrl}` + routeRequest, paramBody);
+  }
 }
