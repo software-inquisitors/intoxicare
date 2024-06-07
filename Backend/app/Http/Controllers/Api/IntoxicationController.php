@@ -32,7 +32,6 @@ class IntoxicationController extends Controller
      */
     public function show(Intoxication $Intoxication)
     {
-        $Intoxication->load('category');
         return response()->json(['Intoxication' => $Intoxication], Response::HTTP_OK);
     }
 
