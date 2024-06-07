@@ -4,11 +4,11 @@
             <div id="hea_navLogo"></div>
         </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li *ngIf="_storageService"><a href="admin/dashboard">Dashboard</a></li>
+            <!-- <li *ngIf="_storageService"><a href="admin/dashboard">Dashboard</a></li> -->
             <li *ngIf="_storageService" (click)="logout()"><a>Logout</a></li>
+            <li><a href="/graph/dashboard">Dashboard</a></li>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/user/perfil">Lista Elementos</a></li>
         </ul>
     </div>
 </nav>
-

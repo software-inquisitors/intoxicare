@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@types/materialize-css": "^1.0.14",
+    "chart.js": "^4.4.3",
     "materialize-css": "^1.0.0",
     "moment": "^2.30.1",
     "ngx-pipes": "^3.2.2",

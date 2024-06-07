@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor.service';
 import { HomeComponent } from './modules/public/template/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { GraphChartComponent } from './modules/public/template/graph-chart/graph-chart.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    GraphChartComponent
   ],
   imports: [
     BrowserModule,
