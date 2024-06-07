@@ -27,10 +27,14 @@ const routes: Routes = [
     loadChildren: () => import("./modules/user/user.module").then(x => x.UserModule)
   },
   {
+    path: "intoxicaciones",
+    loadChildren: () => import("./modules/intoxicacions/intoxicaciones.module").then(x => x.IntoModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   },
-  
+
 ];
 
 @NgModule({

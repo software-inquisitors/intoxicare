@@ -13,6 +13,7 @@ import { InterceptorService } from './services/interceptor.service';
 import { HomeComponent } from './modules/public/template/home/home.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,

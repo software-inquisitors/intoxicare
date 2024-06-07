@@ -1,0 +1,33 @@
+<fieldset>
+    <legend>Intoxicaciones Registradas</legend>
+    <button routerLink="/intoxicaciones/Create" class="btn btn-success"> Añadir Caso</button>
+    <table>
+        <thead>
+          <tr>
+            <th>
+              Nombre
+            </th>
+            <th>
+              Tipo Intoxicacion
+            </th>
+            <th>
+              Eliminar
+            </th>
+          </tr>
+        </thead>
+      <tbody>
+          <tr *ngFor="let x of ListInto">
+            <th>
+              {{x.id}}
+            </th>
+            <th>
+
+            </th>
+            <th>
+              Eliminar
+            </th>
+          </tr>
+      </tbody>
+    </table>
+</fieldset>
+
