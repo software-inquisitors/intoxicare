@@ -31,7 +31,6 @@ class TypeIntoxicationController extends Controller
      */
     public function show(TypeIntoxication $TypeIntoxication)
     {
-        $TypeIntoxication->load('Intoxication');
         return response()->json(['TypeIntoxication' => $TypeIntoxication], Response::HTTP_OK);
     }
 
