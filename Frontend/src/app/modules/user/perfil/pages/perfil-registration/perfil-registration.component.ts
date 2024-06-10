@@ -15,8 +15,8 @@ export class PerfilRegistrationComponent implements OnInit {
   perfilE: any[] = [];
   perfil: any[] = [];
   isListView: boolean = true;
-  
-  
+
+
   constructor(
     private _router: Router,
     private _ac: ActivatedRoute,
@@ -24,19 +24,19 @@ export class PerfilRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPerfil();
-    
+
   }
 
-  
-  actualizarPerfil() {
+
+  actualizarPerfil(perfilId: number) {
     this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestPut("api/Patient", this.perfil))
+      switchMap((params: ParamMap) => this._apiService.requestPut("api/Patient/" + perfilId, this.perfil))
     ).subscribe((response) => {
       this.perfil = response.data;
       console.log(this.perfil)
     });
-  } 
-  
+  }
+
   eliminarPerfil(perfilId: number) {
     this._apiService.requestDelete("api/Patient/" + perfilId).subscribe(
       (response) => {
@@ -51,14 +51,14 @@ export class PerfilRegistrationComponent implements OnInit {
 
 
   //EliminarPerfilComponent(perfilId: number) {
-    //this._ac.paramMap.pipe(
-      //switchMap((params: ParamMap) => this._apiService.requestDelete("api/Patient/" + perfilId)
-    //).subscribe((response) => {
-      //this.perfil = response.data;
-      //console.log(this.perfil)
-    //});
+  //this._ac.paramMap.pipe(
+  //switchMap((params: ParamMap) => this._apiService.requestDelete("api/Patient/" + perfilId)
+  //).subscribe((response) => {
+  //this.perfil = response.data;
+  //console.log(this.perfil)
+  //});
   //}
-  
+
   loadPerfil() {
     this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/Patient"))
@@ -66,6 +66,6 @@ export class PerfilRegistrationComponent implements OnInit {
       this.perfil = response.data;
       console.log(this.perfil)
     });
-  } 
-  
+  }
+
 }

@@ -1,6 +1,7 @@
 <section class="section green lighten-4">
     <div class="container">
-        <button class="btn btn-primary" [routerLink]="['/user/perfil-form']" routerLinkActive="active">Perfil Form</button>
+        <button class="btn btn-primary" [routerLink]="['/user/perfil-form']" routerLinkActive="active">Perfil
+            Form</button>
         <div *ngIf="isListView" class="row">
             <div class="col s12">
                 <table class="striped bordered">
@@ -19,13 +20,17 @@
                             <td>{{perf.email}}</td>
                             <td>{{perf.created_at}}</td>
                             <td>
-                                <button (click)="actualizarPerfil(perf.id)" class="btn btn-sm btn-warning">Update Profile</button>
-                                <button class="btn btn-sm brn-info">
-                                    <i class="fa fa-search"></i>Details</button>
-                                <button (click)="actualizarPerfil(perf.id)"  class="btn btn-sm brn-warning">
-                                    <i class="fa fa-edit"></i>Edit</button>
+                                <a target="_blank" href="">
+                                    <button class="btn btn-sm brn-info">
+                                        <i class="fa fa-search"></i>Details
+                                    </button>
+                                </a>
+                                <button (click)="actualizarPerfil(perf.id)" class="btn btn-sm brn-warning">
+                                    <i class="fa fa-edit"></i>Edit
+                                </button>
                                 <button (click)="eliminarPerfil(perf.id)" class="btn btn-sm brn-danger">
-                                    <i class="fa fa-remove"></i>Delete</button>
+                                    <i class="fa fa-remove"></i>Delete
+                                </button>
                             </td>
                         </tr>
                     </tbody>
