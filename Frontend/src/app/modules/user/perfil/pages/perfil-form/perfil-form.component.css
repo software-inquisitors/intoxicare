@@ -1,12 +1,6 @@
-@media (min-width: 1025px) {
-    .h-custom {
-    height: 100vh !important;
-    }
-}
+
 /* styles.css */
-.section.green.lighten-4 {
-    background-color: #e8f5e9; /* Adjust the green background color as needed */
-  }
+
   
   .container {
     max-width: 600px; /* Set a max-width for the form container */
@@ -17,20 +11,13 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
   }
   
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
+ 
   
   .form-control {
     width: 100%;
     padding: 10px;
     border-radius: 50px; /* Rounded edges for input fields */
-    border: 1px solid #ccc;
+    border: 1px solid #28a745;
     box-sizing: border-box;
   }
   
@@ -41,4 +28,4 @@
   .btn-success {
     background-color: #28a745;
   }
-  
+

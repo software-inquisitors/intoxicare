@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, ChartType } from 'chart.js/auto';
 
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { HttpsServiceService } from '../../../../services/https-service.service';
+
 @Component({
   selector: 'app-graph-chart',
   templateUrl: './graph-chart.component.html',
@@ -12,10 +16,110 @@ export class GraphChartComponent implements OnInit {
   public pieChart: Chart | undefined;
   public barChart: Chart | undefined;
 
+  constructor(
+    private _ac: ActivatedRoute,
+    private _apiService: HttpsServiceService
+  ) { }
+
   ngOnInit(): void {
-    this.createLine();
-    this.createPie();
-    this.createBar();
+    this.createCasesPoisoning();
+    this.createReportDate();
+
+    //this.createLine();
+    //this.createPie();
+    //this.createBar();
+  }
+
+  createCasesPoisoning() {
+
+    let _labels: any[] = [];
+    let _data: any[] = [];
+
+
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestGet("api/Graph/index"))
+    ).subscribe((response) => {
+
+      response.forEach((element: any) => {
+        _labels.push(element.tipo_intoxicacion)
+        _data.push(element.cantidad)
+      });
+
+      const data = {
+        labels: _labels,
+        datasets: [{
+          label: 'Tipos de Intoxicación',
+          data: _data,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+          ],
+          borderWidth: 2
+        }]
+      };
+
+
+      // Creamos la gráfica
+      this.barChart = new Chart("casesPoisoning", {
+        type: 'bar' as ChartType, // tipo de la gráfica 
+        data // datos 
+      })
+
+      // Creamos la gráfica
+      this.pieChart = new Chart("casesPoisoning_distribution", {
+        type: 'pie' as ChartType, // tipo de la gráfica 
+        data // datos 
+      })
+
+    });
+
+  }
+
+  createReportDate() {
+
+    let _labels: any[] = [];
+    let _data: any[] = [];
+
+
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestGet("api/Graph/reportDate"))
+    ).subscribe((response) => {
+
+      response.forEach((element: any) => {
+        _labels.push(element.mes)
+        _data.push(element.cantidad)
+      });
+
+      const data = {
+        labels: _labels,
+        datasets: [{
+          label: 'Cantidad de Intoxicación',
+          data: _data
+        }]
+      };
+
+      // Creamos la gráfica
+      this.barChart = new Chart("reportDate", {
+        type: 'bar' as ChartType, // tipo de la gráfica 
+        data // datos 
+      })
+
+    });
+
   }
 
   createLine() {
