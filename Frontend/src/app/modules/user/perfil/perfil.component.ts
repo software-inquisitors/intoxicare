@@ -37,7 +37,7 @@ export class PerfilComponent implements OnInit {
 
   }
 
-  savePerfil() {
+  savePerfil(perfilObject: PerfilComponent) {
     this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestPost("api/Patient", this.perfilObject))
     ).subscribe((response) => {
