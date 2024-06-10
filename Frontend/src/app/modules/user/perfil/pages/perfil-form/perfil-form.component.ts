@@ -38,14 +38,14 @@ export class PerfilFormComponent implements OnInit {
     console.log('Guardando perfil:', perfilObject);
   
     // Verificar si el correo electrónico ya existe
-    this._apiService.requestGet("api/Patient/checkEmail/" + perfilObject.email).subscribe(
+    this._apiService.requestGet("api/User/checkEmail/" + perfilObject.email).subscribe(
       (response) => {
         if (response.exists) {
           console.error('Error: El correo electrónico ya existe.');
           this.errorMessage = 'El correo electrónico ya está en uso. Por favor, usa otro.';
         } else {
           // Si el correo electrónico no existe, intenta guardar el perfil
-          this._apiService.requestPost("api/Patient", perfilObject).subscribe(
+          this._apiService.requestPost("api/user", perfilObject).subscribe(
             (response) => {
               this.perfil = response.data;
               this.irAlaListaPerfil();
@@ -66,7 +66,7 @@ export class PerfilFormComponent implements OnInit {
   }
 
   irAlaListaPerfil() {
-    this._router.navigate(['/user/perfil']);
+    this._router.navigate(['/User/perfil']);
   }
 
   onSubmit() {

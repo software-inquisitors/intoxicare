@@ -30,7 +30,7 @@ export class PerfilRegistrationComponent implements OnInit {
 
   actualizarPerfil(perfilId: number) {
     this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestPut("api/Patient/" + perfilId, this.perfil))
+      switchMap((params: ParamMap) => this._apiService.requestPut("api/User/" + perfilId, this.perfil))
     ).subscribe((response) => {
       this.perfil = response.data;
       console.log(this.perfil)
@@ -38,30 +38,17 @@ export class PerfilRegistrationComponent implements OnInit {
   }
 
   eliminarPerfil(perfilId: number) {
-    this._apiService.requestDelete("api/Patient/" + perfilId).subscribe(
-      (response) => {
-        this.perfil = response.data;
-        console.log(this.perfil);
-      },
-      (error) => {
-        console.error('Error deleting profile:', error);
-      }
-    );
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestDelete("api/User/" + perfilId))
+    ).subscribe((response) => {
+      this.perfil = response.data;
+      console.log(this.perfil)
+    });
   }
-
-
-  //EliminarPerfilComponent(perfilId: number) {
-  //this._ac.paramMap.pipe(
-  //switchMap((params: ParamMap) => this._apiService.requestDelete("api/Patient/" + perfilId)
-  //).subscribe((response) => {
-  //this.perfil = response.data;
-  //console.log(this.perfil)
-  //});
-  //}
 
   loadPerfil() {
     this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestGet("api/Patient"))
+      switchMap((params: ParamMap) => this._apiService.requestGet("api/User"))
     ).subscribe((response) => {
       this.perfil = response.data;
       console.log(this.perfil)
