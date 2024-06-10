@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpsServiceService } from "../../../services/https-service.service";
-import { Intoxicacion } from "../Intoxicacion.model"
-
-import { switchMap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-intoxicacions-creation',
@@ -12,25 +10,39 @@ import { switchMap } from 'rxjs/operators';
 })
 export class IntoxicacionsCreationComponent implements OnInit {
 
-  public Item: Intoxicacion = new Intoxicacion();
+  intoxicacionForm: FormGroup;
+
   constructor(
+    private fb: FormBuilder,
+    private http: HttpsServiceService,
     private router: Router
-    , private _ac: ActivatedRoute
-    , public _apiService: HttpsServiceService
-  ) { }
-
-  ngOnInit(): void {
-  }
-
-  CreateItem(): void {
-
-    this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestPost('api/Intoxication', {
-        "Alejo": "Jose"
-      }))
-    ).subscribe((response) => {
+  ) {
+    this.intoxicacionForm = this.fb.group({
+      id: ['', Validators.required],
+      dateRegister: ['', Validators.required],
+      symptoms: ['', Validators.required],
+      severety: ['', Validators.required],
+      treatment: ['', Validators.required],
+      patient_id: ['', Validators.required],
+      type_id: ['', Validators.required]
     });
-
   }
 
+  ngOnInit(): void {}
+
+  onSubmit() {
+    const formValue = this.intoxicacionForm.value;
+    let intoxicacion = {
+      ...formValue
+    };
+
+    this.http.requestPost(`api/Intoxication`,intoxicacion).subscribe();
+    console.log(intoxicacion);
+    this.ToRead();
+  }
+
+  ToRead(): void {
+    this.router.navigate(['/intoxicaciones/Read']);
+  }
 }
+

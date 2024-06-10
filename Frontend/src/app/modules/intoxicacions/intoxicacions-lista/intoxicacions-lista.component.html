@@ -42,9 +42,22 @@
           {{ x.type_id }}
         </th>
         <th>
-          Eliminar
+          <button  (click)="warning(x) ">
+            Eliminar
+          </button>
+        </th>
+        <th>
+          <button  (click)="GoUptade(x) ">
+            Actualizar
+          </button>
         </th>
       </tr>
     </tbody>
   </table>
+  <button  (click)="showList(this.lista-1)"  [disabled]="lista==1">
+    Anterior
+  </button>
+  <button  (click)="showList(this.lista+1) " [disabled]="ListInto.length<15">
+    Siquiente
+  </button>
 </fieldset>

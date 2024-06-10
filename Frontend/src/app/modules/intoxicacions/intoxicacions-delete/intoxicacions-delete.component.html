@@ -1,1 +1,11 @@
 <p>intoxicacions-delete works!</p>
+<h2>Detalles de la Intoxicación a eliminar</h2>
+<h2 *ngIf="into">
+<p><strong>ID:</strong> {{ into.id }}</p>
+<p><strong>Síntomas:</strong> {{ into.symptoms}}</p>
+<p><strong>Severidad:</strong> {{ into.severety }}</p>
+<p><strong>Fecha de registro:</strong> {{into.dateRegister}}</p>
+<p><strong>Tipo Intoxicación:</strong> {{ into.type_id }}</p>
+</h2>
+<button (click)="deleteInto()">Funciono</button>
+<button (click)="ToRead()">Cancelar</button>

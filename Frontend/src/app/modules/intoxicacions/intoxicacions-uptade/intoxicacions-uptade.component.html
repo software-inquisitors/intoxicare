@@ -1,7 +1,12 @@
-<h2>Registrar Intoxicación</h2>
+<p>intoxicacions-uptade works!</p>
 <form [formGroup]="intoxicacionForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="dateRegister">Fecha de Contagio</label>
+    <label for="id">ID</label>
+    <input id="id" formControlName="id" type="number"  />
+  </div>
+
+  <div>
+    <label for="dateRegister">Fecha de Registro</label>
     <input id="dateRegister" formControlName="dateRegister" type="date" />
   </div>
 
@@ -30,7 +35,6 @@
     <input id="type_id" formControlName="type_id" type="text" />
   </div>
 
-  <button type="submit">Registrar</button>
+  <button type="submit">Actualizar</button>
   <button type="button" (click)="ToRead()">Cancelar</button>
 </form>
-
