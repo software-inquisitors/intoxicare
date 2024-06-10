@@ -1,39 +1,38 @@
 <section class="section green lighten-4">
     <div class="container">
-        <button class="btn btn-primary" [routerLink]="['/user/perfil-form']" routerLinkActive="active">Perfil
-            Form</button>
-        <div *ngIf="isListView" class="row">
-            <div class="col s12">
-                <table class="striped bordered">
-                    <thead>
-                        <tr>
-                            <th>Sr no</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Created</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let perf of perfil; let sr=index">
-                            <td>{{perf.id}}</td>
-                            <td>{{perf.name}}</td>
-                            <td>{{perf.email}}</td>
-                            <td>{{perf.created_at}}</td>
-                            <td>
-                                <button class="btn btn-sm brn-info">
-                                    <i class="fa fa-search"></i>Details</button>
-                                <button (click)="actualizarPerfil(perf.id)"  class="btn btn-sm brn-warning">
-                                    <i class="fa fa-edit"></i>Edit</button>
-                                <button (click)="eliminarPerfil(perf.id)" class="btn btn-sm brn-danger">
-                                    <span class="material-icons">
-                                        delete
-                                    </span>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <button class="btn btn-primary" [routerLink]="['/user/perfil-form']" routerLinkActive="active">
+            Formulario
+        </button>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> N° </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="created_at">
+                <th mat-header-cell *matHeaderCellDef> Fecha Creacion </th>
+                <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[12, 24, 36]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+
     </div>
+
 </section>

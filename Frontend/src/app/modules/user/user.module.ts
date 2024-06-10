@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilFormComponent } from './perfil/pages/perfil-form/perfil-form.component';
 import { ActualizarPerfilComponent } from './perfil/pages/actualizar-perfil/actualizar-perfil.component';
 import { PerfilDetallesComponent } from './perfil/pages/perfil-detalles/perfil-detalles.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 
 @NgModule({
   declarations: [
@@ -16,13 +20,15 @@ import { PerfilDetallesComponent } from './perfil/pages/perfil-detalles/perfil-d
     PerfilRegistrationComponent,
     PerfilFormComponent,
     ActualizarPerfilComponent,
-    PerfilDetallesComponent
+    PerfilDetallesComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class UserModule { }
