@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpsServiceService} from "../../../services/https-service.service";
-import {Intoxicacion} from "../Intoxicacion.model"
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { HttpsServiceService } from "../../../services/https-service.service";
+import { Intoxicacion } from "../Intoxicacion.model"
+
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-intoxicacions-creation',
@@ -9,16 +12,25 @@ import {Intoxicacion} from "../Intoxicacion.model"
 })
 export class IntoxicacionsCreationComponent implements OnInit {
 
-  public Item:Intoxicacion = new Intoxicacion();
+  public Item: Intoxicacion = new Intoxicacion();
   constructor(
-    public http: HttpsServiceService
+    private router: Router
+    , private _ac: ActivatedRoute
+    , public _apiService: HttpsServiceService
   ) { }
 
   ngOnInit(): void {
   }
 
   CreateItem(): void {
-    this.http.requestPost('api/Intoxication',this.Item);
+
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestPost('api/Intoxication', {
+        "Alejo": "Jose"
+      }))
+    ).subscribe((response) => {
+    });
+
   }
 
 }

@@ -32,7 +32,6 @@ class PatientController extends Controller
      */
     public function show(User $User)
     {
-        $User->load('category');
         return response()->json(['User' => $User], Response::HTTP_OK);
     }
 
