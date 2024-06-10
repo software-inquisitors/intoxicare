@@ -10,7 +10,7 @@ declare const M: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   @ViewChild('pieChart', { static: false }) pieChart!: ElementRef;
   @ViewChild('dataContainer', { static: false }) dataContainer!: ElementRef;
@@ -27,16 +27,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     M.AutoInit();
 
-    this._ac.paramMap.pipe(
+    /*this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/v1/HRSD/get/all"))
     ).subscribe((response) => {
      
-    });
-  }
-
-  ngAfterViewInit(): void {
-    this.createPieChart();
-    this.displayData();
+    });*/
   }
 
   createPieChart(): void {
@@ -67,7 +62,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   displayData(): void {
     const dataContainer = this.dataContainer.nativeElement;
-    dataContainer.innerHTML = ''; 
+    dataContainer.innerHTML = '';
 
     this.percentageArray.forEach((percentage, index) => {
       const dataItem = document.createElement('div');

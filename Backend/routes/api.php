@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\IntoxicationController;
 use App\Http\Controllers\Api\TypeIntoxicationController;
+use App\Http\Controllers\Api\GraphController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ use App\Http\Controllers\Api\TypeIntoxicationController;
 Route::apiResource('User', UserController::class);
 Route::apiResource('Intoxication', IntoxicationController::class);
 Route::apiResource('TypeIntoxication', TypeIntoxicationController::class);
+
+Route::controller(GraphController::class)->group(function () {
+    Route::get('/Graph/index', 'index');
+    Route::get('/Graph/reportDate', 'reportDate');
+});
