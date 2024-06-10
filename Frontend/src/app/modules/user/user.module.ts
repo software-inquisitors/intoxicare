@@ -7,12 +7,16 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { PerfilRegistrationComponent } from './perfil/pages/perfil-registration/perfil-registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PerfilFormComponent } from './perfil/pages/perfil-form/perfil-form.component';
+import { ActualizarPerfilComponent } from './perfil/pages/actualizar-perfil/actualizar-perfil.component';
+import { PerfilDetallesComponent } from './perfil/pages/perfil-detalles/perfil-detalles.component';
 
 @NgModule({
   declarations: [
     PerfilComponent,
     PerfilRegistrationComponent,
-    PerfilFormComponent
+    PerfilFormComponent,
+    ActualizarPerfilComponent,
+    PerfilDetallesComponent
   ],
   imports: [
     CommonModule,

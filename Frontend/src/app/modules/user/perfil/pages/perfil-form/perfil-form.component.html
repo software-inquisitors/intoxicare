@@ -1,31 +1,35 @@
 <section class="section green lighten-4">
-    <div class="container">
-      <button class="btn btn-primary" [routerLink]="['/user/perfil']" routerLinkActive="active">Perfil List</button>
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text"
-                 class="form-control"
-                 id="name"
-                 [(ngModel)]="perfil.name"
-                 name="name"
-          >
-          <label>Email</label>
-          <input type="text"
-                 class="form-control"
-                 id="name"
-                 [(ngModel)]="perfil.email"
-                 name="email"
-          >
-          <label>Password</label>
-          <input type="password"
-                 class="form-control"
-                 id="name"
-                 [(ngModel)]="perfil.password"
-                 name="password"
-          >
-        </div>
-        <button class="btn btn-success">Save</button>
-      </form>
+  <div class="container">
+    <button class="btn btn-primary" [routerLink]="['/user/perfil']" routerLinkActive="active">Perfil List</button>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text"
+               class="form-control"
+               id="name"
+               [(ngModel)]="perfil.name"
+               name="name"
+               required>
+        <label for="email">Email</label>
+        <input type="text"
+               class="form-control"
+               id="email"
+               [(ngModel)]="perfil.email"
+               name="email"
+               required>
+        <label for="password">Password</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               [(ngModel)]="perfil.password"
+               name="password"
+               required>
+      </div>
+      <button class="btn btn-success">Save</button>
+    </form>
+    <!-- Mostrar mensaje de error si existe -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+      {{ errorMessage }}
     </div>
+  </div>
 </section>

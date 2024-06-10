@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\IntoxicationController;
 use App\Http\Controllers\Api\TypeIntoxicationController;
 
@@ -17,6 +17,6 @@ use App\Http\Controllers\Api\TypeIntoxicationController;
 |
 */
 
-Route::apiResource('Patient', PatientController::class);
+Route::apiResource('User', UserController::class);
 Route::apiResource('Intoxication', IntoxicationController::class);
 Route::apiResource('TypeIntoxication', TypeIntoxicationController::class);
