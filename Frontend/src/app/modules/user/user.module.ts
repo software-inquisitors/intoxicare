@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilFormComponent } from './perfil/pages/perfil-form/perfil-form.component';
 import { ActualizarPerfilComponent } from './perfil/pages/actualizar-perfil/actualizar-perfil.component';
 import { PerfilDetallesComponent } from './perfil/pages/perfil-detalles/perfil-detalles.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 import { EliminarPerfilComponent } from './perfil/pages/eliminar-perfil/eliminar-perfil.component';
 
 @NgModule({
@@ -18,13 +22,16 @@ import { EliminarPerfilComponent } from './perfil/pages/eliminar-perfil/eliminar
     PerfilFormComponent,
     ActualizarPerfilComponent,
     PerfilDetallesComponent,
+    PerfilDetallesComponent,
     EliminarPerfilComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class UserModule { }
