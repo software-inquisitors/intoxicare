@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Models\User;
 use \Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+
+use App\Models\User;
+use App\Models\Intoxication;
 
 class UserController extends Controller
 {
@@ -49,6 +51,12 @@ class UserController extends Controller
      */
     public function destroy(User $User)
     {
+        $intoxications = Intoxication::where('patient_id', $User->id)->get();
+
+        foreach ($intoxications as $intoxication) {
+            $intoxication->delete();
+        }
+
         $User->delete();
         return response()->json(null, Response::HTTP_ACCEPTED);
     }
