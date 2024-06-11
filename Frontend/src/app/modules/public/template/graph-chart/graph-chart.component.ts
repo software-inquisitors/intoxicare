@@ -24,6 +24,7 @@ export class GraphChartComponent implements OnInit {
   ngOnInit(): void {
     this.createCasesPoisoning();
     this.createReportDate();
+    this.createReportLastYear();
 
     //this.createLine();
     //this.createPie();
@@ -34,7 +35,6 @@ export class GraphChartComponent implements OnInit {
 
     let _labels: any[] = [];
     let _data: any[] = [];
-
 
     this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/Graph/index"))
@@ -107,7 +107,7 @@ export class GraphChartComponent implements OnInit {
       const data = {
         labels: _labels,
         datasets: [{
-          label: 'Cantidad de Intoxicación',
+          label: 'Cantidad de Intoxicación por mes',
           data: _data
         }]
       };
@@ -116,6 +116,200 @@ export class GraphChartComponent implements OnInit {
       this.barChart = new Chart("reportDate", {
         type: 'bar' as ChartType, // tipo de la gráfica 
         data // datos 
+      })
+
+    });
+
+  }
+
+  createReportLastYear() {
+
+    let _labels: any[] = [];
+
+    let _dataRaw: {
+      Indeterminada: { label: string, data: number[] },
+      Animales: { label: string, data: number[] },
+      Alcohol: { label: string, data: number[] },
+      Medicamentos: { label: string, data: number[] },
+      Alimentaria: { label: string, data: number[] },
+      Sustancias: { label: string, data: number[] },
+      Plantas: { label: string, data: number[] },
+      Metales: { label: string, data: number[] },
+      Gases: { label: string, data: number[] },
+      Drogas: { label: string, data: number[] }
+    } = {
+      Indeterminada: { label: "", data: [] },
+      Animales: { label: "", data: [] },
+      Alcohol: { label: "", data: [] },
+      Medicamentos: { label: "", data: [] },
+      Alimentaria: { label: "", data: [] },
+      Sustancias: { label: "", data: [] },
+      Plantas: { label: "", data: [] },
+      Metales: { label: "", data: [] },
+      Gases: { label: "", data: [] },
+      Drogas: { label: "", data: [] }
+    }
+
+    console.log(_dataRaw)
+
+    let _data: any[] = [];
+
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestGet("api/Graph/lastYear"))
+    ).subscribe((response) => {
+
+      response.forEach((element: { mes: string, tipo_intoxicacion: string, cantidad: number }) => {
+
+        if (!_labels.includes(element.mes)) {
+          _labels.push(element.mes);
+        }
+
+        switch (element.tipo_intoxicacion) {
+
+          case "Plantas y Hongos":
+
+            _dataRaw.Plantas.label = element.tipo_intoxicacion;
+            _dataRaw.Plantas.data.push(element.cantidad);
+            break;
+
+          case "Gases y Vapores":
+
+            _dataRaw.Gases.label = element.tipo_intoxicacion;
+            _dataRaw.Gases.data.push(element.cantidad);
+            break;
+
+          case "Sustancias Químicas":
+
+            _dataRaw.Sustancias.label = element.tipo_intoxicacion;
+            _dataRaw.Sustancias.data.push(element.cantidad);
+            break;
+
+          case "Alcohol":
+
+            _dataRaw.Alcohol.label = element.tipo_intoxicacion;
+            _dataRaw.Alcohol.data.push(element.cantidad);
+            break;
+
+          case "Medicamentos":
+
+            _dataRaw.Medicamentos.label = element.tipo_intoxicacion;
+            _dataRaw.Medicamentos.data.push(element.cantidad);
+            break;
+
+          case "Alimentaria":
+
+            _dataRaw.Alimentaria.label = element.tipo_intoxicacion;
+            _dataRaw.Alimentaria.data.push(element.cantidad);
+            break;
+
+          case "Metales Pesados":
+
+            _dataRaw.Metales.label = element.tipo_intoxicacion;
+            _dataRaw.Metales.data.push(element.cantidad);
+            break;
+
+          case "Drogas Recreativas":
+
+            _dataRaw.Drogas.label = element.tipo_intoxicacion;
+            _dataRaw.Drogas.data.push(element.cantidad);
+            break;
+
+          case "Animales Venenosos":
+
+            _dataRaw.Animales.label = element.tipo_intoxicacion;
+            _dataRaw.Animales.data.push(element.cantidad);
+            break;
+
+          default:
+
+            _dataRaw.Indeterminada.label = element.tipo_intoxicacion;
+            _dataRaw.Indeterminada.data.push(element.cantidad);
+            break;
+        }
+
+      });
+
+      const data = {
+        labels: _labels,
+        datasets: [
+          {
+            label: _dataRaw["Indeterminada"].label,
+            data: _dataRaw["Indeterminada"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Animales"].label,
+            data: _dataRaw["Animales"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Alcohol"].label,
+            data: _dataRaw["Alcohol"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Medicamentos"].label,
+            data: _dataRaw["Medicamentos"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Alimentaria"].label,
+            data: _dataRaw["Alimentaria"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Sustancias"].label,
+            data: _dataRaw["Sustancias"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Plantas"].label,
+            data: _dataRaw["Plantas"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Metales"].label,
+            data: _dataRaw["Metales"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Gases"].label,
+            data: _dataRaw["Gases"].data,
+            yAxisID: 'y'
+          },
+          {
+            label: _dataRaw["Drogas"].label,
+            data: _dataRaw["Drogas"].data,
+            yAxisID: 'y'
+          },
+
+        ]
+      };
+
+      // Creamos la gráfica
+      this.lineChart = new Chart("reportDate_line", {
+        type: 'line' as ChartType, // tipo de la gráfica 
+        data: data,
+        options: {
+          responsive: true,
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: 'Último Año'
+            }
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+            }
+          }
+        },
       })
 
     });

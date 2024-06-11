@@ -25,4 +25,5 @@ Route::apiResource('TypeIntoxication', TypeIntoxicationController::class);
 Route::controller(GraphController::class)->group(function () {
     Route::get('/Graph/index', 'index');
     Route::get('/Graph/reportDate', 'reportDate');
+    Route::get('/Graph/lastYear', 'lastYear');
 });

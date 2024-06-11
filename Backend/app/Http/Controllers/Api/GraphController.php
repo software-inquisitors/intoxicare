@@ -22,4 +22,14 @@ class GraphController extends Controller
     {
         return DB::select("SELECT DATE_FORMAT(dateRegister, '%Y-%m') AS mes, COUNT(id) AS cantidad FROM intoxications i GROUP BY mes ORDER BY mes;");
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function lastYear()
+    {
+        return DB::select("call sp_getLastYear();");
+    }
 }

@@ -13,6 +13,6 @@ class IntoxicationSeeder extends Seeder
      */
     public function run(): void
     {
-        Intoxication::factory(250)->create();
+        Intoxication::factory(12500)->create();
     }
 }

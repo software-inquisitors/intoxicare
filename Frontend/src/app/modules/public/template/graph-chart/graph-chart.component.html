@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m12">
 
             <div class="col m12">
                 <h3> Casos de Intoxicación:</h3>
@@ -9,38 +9,107 @@
                     Error, quaerat tempore.</p>
             </div>
 
-            <div class="col m12">
+            <div class="col m6">
 
                 <div class="card">
-                    <div class="card-image" style="height: 300px; width: 100%;">
+                    <div class="card-image" style="height: 350px;">
                         <canvas id="casesPoisoning"></canvas>
                     </div>
                     <div class="card-action">
-                        <a href="#">Grafica de Casos por Intoxicación</a>
+                        <a>Grafica de Casos por Intoxicación</a>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="col m6">
+
                 <div class="card">
-                    <div class="card-image" style="height: 300px;">
-                        <canvas id="reportDate"></canvas>
+                    <div class="card-image" style="width: 550px;">
+                        <canvas id="casesPoisoning_distribution"></canvas>
                     </div>
                     <div class="card-action">
-                        <a href="#">Grafica de Reportes de Casos</a>
+                        <a>Grafica de Casos por Intoxicación</a>
                     </div>
                 </div>
+
             </div>
+
+            <div class="col m12">
+
+                <br>
+                <br>
+                <p>
+
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti quo officia laborum facere
+                    voluptates, est totam, sed natus voluptatem magni odio ducimus delectus consequuntur, deserunt
+                    suscipit
+                    eos ipsum dicta repellat.<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quibusdam dolorum perferendis,
+                    temporibus ipsum reprehenderit error cupiditate iure possimus voluptatibus qui quidem eius.
+                    Nesciunt,
+                    aliquid? Quam cumque quisquam sint rerum?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos provident quo ullam maxime, quisquam,
+                    facere dolores quasi fugiat hic aperiam architecto doloribus odio quidem eligendi reiciendis. Quasi
+                    non
+                    officiis quae.
+                </p>
+                <br>
+
+            </div>
+
         </div>
-        <div class="col s12 m6">
+
+        <div class="divider col m12"></div>
+
+        <div class="col s12 m12">
+
+            <h3>Cantidad de Intoxicaciones por mes</h3>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus provident placeat dolore ipsam animi
+                fugiat error similique distinctio hic optio est, atque nihil! Officia aliquam laborum, ullam perferendis
+                officiis at!.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum similique illum atque cupiditate eum
+                laudantium, possimus ea accusantium culpa iusto, molestias fugiat veniam at sapiente nemo, reprehenderit
+                in iste repellat!
+            </p>
+
             <div class="card">
-                <div class="card-image" style="width: 550px;">
-                    <canvas id="casesPoisoning_distribution"></canvas>
+                <div class="card-image" style="width: 1200px;">
+                    <canvas id="reportDate"></canvas>
                 </div>
                 <div class="card-action">
-                    <a href="#">Grafica de Casos por Intoxicación</a>
+                    <a>Historico Reportes de Intoxicación</a>
                 </div>
             </div>
+
+            <br>
+
+            <div class="divider col m12"></div>
+
+            <br>
+
+            <h3>Reportes último año</h3>
+
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam adipisci officiis dolor vitae eaque
+                sint, quibusdam ipsa vel aspernatur enim magnam quae rerum nulla cumque quisquam explicabo pariatur
+                repudiandae provident.
+            </p>
+
+            <div class="card">
+                <div class="card-image" style="width: 1200px;">
+                    <canvas id="reportDate_line"></canvas>
+                </div>
+                <div class="card-action">
+                    <a>Intoxicaciones final de mes</a>
+                </div>
+            </div>
+
+
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m4" style="display: none;">
             <div class="card">
                 <div class="card-image">
                     <canvas id="lineChart"></canvas>
@@ -50,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m4" style="display: none;">
             <div class="card">
                 <div class="card-image">
                     <canvas id="pieChart"></canvas>
