@@ -13,7 +13,6 @@ export interface PeriodicElement {
   created_at: string;
 }
 
-
 @Component({
   selector: 'app-perfil-registration',
   templateUrl: './perfil-registration.component.html',
@@ -62,7 +61,7 @@ export class PerfilRegistrationComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'created_at'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'created_at', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>();
 
   loadPerfil() {
