@@ -25,9 +25,7 @@ export class ActualizarPerfilComponent implements OnInit {
     this.perfilForm = this.fb.group({
       id: [{ value: '', disabled: true }, Validators.required], // Disabled ID field
       name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      role: ['', Validators.required]
+      email: ['', Validators.required]
     });
    }
 
