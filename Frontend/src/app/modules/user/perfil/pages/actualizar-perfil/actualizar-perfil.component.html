@@ -1,1 +1,20 @@
-<p>actualizar-perfil works!</p>
+<div class="container">
+    <h2>Actualizar Perfil</h2>
+    <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input id="id" formControlName="id" type="number" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input id="name" formControlName="name" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" class="form-control" />
+      </div>  
+      <button type="submit" class="btn btn-primary" [disabled]="!perfilForm.valid">Actualizar</button>
+      <button type="button" class="btn btn-secondary" (click)="ToRead()">Cancelar</button>
+    </form>
+  </div>
+  
