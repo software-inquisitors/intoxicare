@@ -29,10 +29,10 @@
                 <th mat-header-cell *matHeaderCellDef> Acciones </th>
                 <td mat-cell *matCellDef="let element">
                     <button class="btn btn-sm btn-info">
-                        <i class="fa fa-search"></i> Details
+                        <span class="material-icons">view_list</span>
                     </button>
                     <button (click)="actualizarPerfil(element.id)" class="btn btn-sm btn-warning">
-                        <i class="fa fa-edit"></i> Edit
+                        <span class="material-icons">edit</span>
                     </button>
                     <button (click)="eliminarPerfil(element.id)" class="btn btn-sm btn-danger">
                         <span class="material-icons">delete</span>

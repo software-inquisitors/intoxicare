@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpsServiceService } from '../../../../../services/https-service.service';
-import {ActivatedRoute, Router} from "@angular/router";
-import { UserModule } from '../../../user.module';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms"; 
+import { ActivatedRoute, Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Perfil } from '../perfil.model';
 
 
 @Component({
@@ -11,10 +11,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./actualizar-perfil.component.css']
 })
 export class ActualizarPerfilComponent implements OnInit {
-
   perfilForm: FormGroup;
   public itemId: string = "";
-  public perfil : UserModule= new UserModule();
+  public per: Perfil = new Perfil();
 
   constructor(
     private fb: FormBuilder,
@@ -23,22 +22,24 @@ export class ActualizarPerfilComponent implements OnInit {
     private router: Router
   ) {
     this.perfilForm = this.fb.group({
-      id: [{ value: '', disabled: true }, Validators.required], // Disabled ID field
+      id: [{ value: '', disabled: true }, Validators.required],
       name: ['', Validators.required],
       email: ['', Validators.required]
     });
-   }
+  }
 
   ngOnInit(): void {
     this.itemId = this.route.snapshot.paramMap.get('id') || '';
     this.getPerfilDetails();
-    }
+  }
 
   getPerfilDetails(): void {
     this.http.requestGet(`api/User/${this.itemId}`).subscribe({
       next: (data) => {
-        this.perfil = data.User;
-        console.log('Perfil Encontrado:', this.perfil);
+        this.per = data.User;
+        this.perfilForm.controls["id"].setValue(this.per.id);
+        this.perfilForm.controls["name"].setValue(this.per.name);
+        this.perfilForm.controls["email"].setValue(this.per.email);
       }, error: (err) => {
         console.error('Error al obtener detalles del perfil:', err);
       }
@@ -64,6 +65,6 @@ export class ActualizarPerfilComponent implements OnInit {
   }
 
   ToRead(): void {
-    this.router.navigate(['user/perfil']);
+    this.router.navigate(['/user/perfil']);
   }
 }

@@ -35,12 +35,8 @@ export class PerfilRegistrationComponent implements OnInit {
   }
 
   actualizarPerfil(perfilId: number) {
-    this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestPut("api/User/" + perfilId, this.perfil))
-    ).subscribe((response) => {
-      this.perfil = response.data;
-      console.log(this.perfil)
-    });
+    console.log(perfilId);
+    this._router.navigate(['/user/actualizar-perfil', perfilId])
   }
 
   eliminarPerfil(perfilId: number) {
@@ -51,9 +47,6 @@ export class PerfilRegistrationComponent implements OnInit {
       console.log(this.perfil)
     });
   }
-
-
-  // =====================================
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
