@@ -34,16 +34,22 @@ export class IntoxicacionsUptadeComponent implements OnInit {
   ngOnInit(): void {
     this.itemId = this.route.snapshot.paramMap.get('id') || '';
     this.getIntoxicacionDetails();
-    this.intoxicacionForm.controls["id"].setValue(this.into.id);
-    this.intoxicacionForm.controls["symptoms"].setValue(this.into.symptoms);
-    this.intoxicacionForm.patchValue(this.into);
   }
 
   getIntoxicacionDetails(): void {
     this.http.requestGet(`api/Intoxication/${this.itemId}`).subscribe({
       next: (data) => {
-        this.into = data;
-        console.log('Intoxicación Encontrada:', this.into);
+        this.into = data.Intoxication;
+        this.intoxicacionForm.controls["id"].setValue(this.into.id);
+        this.intoxicacionForm.controls["symptoms"].setValue(this.into.symptoms);
+        this.intoxicacionForm.controls["severety"].setValue(this.into.severety);
+        this.intoxicacionForm.controls["treatment"].setValue(this.into.treatment);
+        this.intoxicacionForm.controls["patient_id"].setValue(this.into.patient_id);
+        this.intoxicacionForm.controls["type_id"].setValue(this.into.type_id);
+        const dateString: any = this.into.dateRegister;
+        const dateObject: Date = new Date(dateString);
+        const formattedDate = this.formatDate(dateObject);
+        this.intoxicacionForm.controls["dateRegister"].setValue(formattedDate);
       },
       error: (err) => {
         console.error('Error al obtener detalles de la intoxicación:', err);
@@ -66,6 +72,13 @@ export class IntoxicacionsUptadeComponent implements OnInit {
         }
       });
     }
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   ToRead(): void {
