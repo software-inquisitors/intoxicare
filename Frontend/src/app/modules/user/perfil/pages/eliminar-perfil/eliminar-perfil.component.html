@@ -1,1 +1,13 @@
-<p>eliminar-perfil works!</p>
+<div class="container">
+    <h2>Detalles del Perfil a Eliminar</h2>
+    <div *ngIf="perfil">
+        <p><strong>ID:</strong> (perfil.id)</p>
+        <p><strong>Nombre:</strong> (perfil.name)</p>
+        <p><strong>Email:</strong> (perfil.email)</p>
+        <p><strong>Fecha de Registro:</strong> (perfil.dateRegister)</p>
+    </div>
+    <div class="buttons">
+        <button class="btn btn-danger" (click)="deletePerfil()">Eliminar</button>
+        <button class="btn btn-secondary" (click)="ToRead()">Cancelar</button>
+    </div>
+</div>
