@@ -3,8 +3,6 @@ import { HttpsServiceService } from '../../../../../services/https-service.servi
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-
-
 @Component({
   selector: 'app-perfil-form',
   templateUrl: './perfil-form.component.html',
@@ -13,34 +11,40 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class PerfilFormComponent implements OnInit {
 
   perfilForm: FormGroup;
-  
+
   constructor(
     private fb: FormBuilder,
     private _router: Router,
-    private _apiService: HttpsServiceService) { 
+    private _apiService: HttpsServiceService
+  ) {
     this.perfilForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-    }
-
-  ngOnInit(): void {
-    
   }
 
-  irAlaListaPerfil() {
-    this._router.navigate(['/User/perfil']);
-  }
+  ngOnInit(): void { }
 
   onSubmit() {
+    if (this.perfilForm.invalid) {
+      return;
+    }
+
     const formValue = this.perfilForm.value;
     let perfil = {
       ...formValue
     };
 
-    this._apiService.requestPost(`api/User`,perfil).subscribe();
-    console.log(perfil);
-    this.irAlaListaPerfil();
+    this._apiService.requestPost(`api/User`, perfil).subscribe({
+      next: (response) => {
+        console.log('Perfil registrado exitosamente', response);
+        this._router.navigate(['/user/perfil']);
+      },
+      error: (error) => {
+        console.error('Error al registrar el perfil', error);
+        // Aquí podrías manejar el error de manera adecuada, mostrar un mensaje al usuario, etc.
+      }
+    });
   }
 }
