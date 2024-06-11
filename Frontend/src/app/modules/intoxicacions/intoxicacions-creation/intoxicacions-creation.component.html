@@ -30,7 +30,7 @@
     <input id="type_id" formControlName="type_id" type="text" />
   </div>
 
-  <button type="submit">Registrar</button>
+  <button type="submit" [disabled]="!intoxicacionForm.valid">Registrar</button>
   <button type="button" (click)="ToRead()">Cancelar</button>
 </form>
 
