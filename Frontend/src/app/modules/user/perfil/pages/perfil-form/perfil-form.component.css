@@ -1,31 +1,24 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-/* styles.css */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid #28a745;
+  box-sizing: border-box;
+}
 
-  
-  .container {
-    max-width: 600px; /* Set a max-width for the form container */
-    margin: auto;
-    background-color: #fff; /* White background for the form */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners for the form container */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
-  }
-  
- 
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 50px; /* Rounded edges for input fields */
-    border: 1px solid #28a745;
-    box-sizing: border-box;
-  }
-  
-  .btn-primary {
-    background-color: #373737;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-  }
+.btn-primary {
+  background-color: #373737;
+}
 
+.btn-success {
+  background-color: #28a745;
+}

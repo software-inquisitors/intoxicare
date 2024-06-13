@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -29,23 +29,8 @@ export class PerfilRegistrationComponent implements OnInit {
     private _ac: ActivatedRoute,
     private _apiService: HttpsServiceService) { }
 
-
   ngOnInit(): void {
     this.loadPerfil();
-  }
-
-  actualizarPerfil(perfilId: number) {
-    console.log(perfilId);
-    this._router.navigate(['/user/actualizar-perfil', perfilId])
-  }
-
-  eliminarPerfil(perfilId: number) {
-    this._ac.paramMap.pipe(
-      switchMap((params: ParamMap) => this._apiService.requestDelete("api/User/" + perfilId))
-    ).subscribe((response) => {
-      this.perfil = response.data;
-      console.log(this.perfil)
-    });
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -57,6 +42,9 @@ export class PerfilRegistrationComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email', 'created_at', 'actions'];
   dataSource = new MatTableDataSource<PeriodicElement>();
 
+  /**
+   * Funcion utilizada para hacer una peticion GET de todos los usuario 
+   */
   loadPerfil() {
     this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/User"))
@@ -67,4 +55,25 @@ export class PerfilRegistrationComponent implements OnInit {
     });
   }
 
+  /**
+   * Funcion utilizada para actualizar a un usuario 
+   */
+  actualizarPerfil(perfilId: number) {
+    console.log(perfilId);
+    this._router.navigate(['/user/actualizar-perfil', perfilId])
+  }
+
+  /**
+   * Funcion utilizada para eliminar a un usuario 
+   */
+  eliminarPerfil(perfilId: number) {
+    this._ac.paramMap.pipe(
+      switchMap((params: ParamMap) => this._apiService.requestDelete("api/User/" + perfilId))
+    ).subscribe((response) => {
+      this.loadPerfil();
+      if (this.paginator) {
+        this.perfil = response.data;
+      }
+    });
+  }
 }
