@@ -13,11 +13,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class PerfilFormComponent implements OnInit {
 
   perfilForm: FormGroup;
-  
+
   constructor(
     private fb: FormBuilder,
     private _router: Router,
-    private _apiService: HttpsServiceService) { 
+    private _apiService: HttpsServiceService) {
     this.perfilForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -26,11 +26,11 @@ export class PerfilFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    
+
   }
 
   irAlaListaPerfil() {
-    this._router.navigate(['/User/perfil']);
+    this._router.navigate(['/user/perfil']);
   }
 
   onSubmit() {

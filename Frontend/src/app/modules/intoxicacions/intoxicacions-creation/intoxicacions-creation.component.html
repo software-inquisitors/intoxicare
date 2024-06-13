@@ -22,12 +22,12 @@
 
   <div>
     <label for="patient_id">ID del Paciente</label>
-    <input id="patient_id" formControlName="patient_id" type="text" />
+    <input id="patient_id" formControlName="patient_id" type="number" />
   </div>
 
   <div>
     <label for="type_id">Tipo de Intoxicación</label>
-    <input id="type_id" formControlName="type_id" type="text" />
+    <input id="type_id" formControlName="type_id" type="number" />
   </div>
 
   <button type="submit" [disabled]="!intoxicacionForm.valid">Registrar</button>
