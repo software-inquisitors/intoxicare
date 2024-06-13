@@ -1,17 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpsServiceService } from '../../../../../services/https-service.service';
-import {ActivatedRoute, Router} from "@angular/router";
-import { UserModule } from '../../../user.module';
+import { ActivatedRoute, Router } from "@angular/router";
+
+export interface UserObject {
+  id: number,
+  name: string,
+  email: string,
+  dateRegister: string
+}
 
 @Component({
   selector: 'app-eliminar-perfil',
   templateUrl: './eliminar-perfil.component.html',
   styleUrls: ['./eliminar-perfil.component.css']
 })
+
 export class EliminarPerfilComponent implements OnInit {
 
   public itemId: string;
-  public perfil : UserModule= new UserModule();
+  public perfil: UserObject;
 
   constructor(
     public http: HttpsServiceService,
@@ -19,19 +26,16 @@ export class EliminarPerfilComponent implements OnInit {
     private router: Router
   ) {
     this.itemId = this.route.snapshot.paramMap.get('id') || '';
-   }
-
-  ngOnInit(): void {
-    
+    this.perfil = {
+      id: 0,
+      name: "",
+      email: "",
+      dateRegister: ""
+    }
   }
 
-  getPerfilDetails(): void {
-    this.http.requestGet(`api/User/${this.itemId}`).subscribe({
-      next: (data) => {
-        this.perfil = data.User;
-        console.log('Perfil Encontrado:', this.perfil);
-      }
-    });
+  ngOnInit(): void {
+
   }
 
   deletePerfil(): void {

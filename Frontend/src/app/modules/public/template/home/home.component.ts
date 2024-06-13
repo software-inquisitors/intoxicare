@@ -3,8 +3,6 @@ import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpsServiceService } from '../../../../services/https-service.service';
 
-declare const M: any;
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,7 +23,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    M.AutoInit();
 
     /*this._ac.paramMap.pipe(
       switchMap((params: ParamMap) => this._apiService.requestGet("api/v1/HRSD/get/all"))

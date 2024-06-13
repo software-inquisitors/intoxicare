@@ -9,7 +9,6 @@ import { NotFoundComponent } from './modules/public/errors/not-found/not-found.c
 import { FooterComponent } from './modules/public/template/footer/footer.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './services/interceptor.service';
 import { HomeComponent } from './modules/public/template/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { GraphChartComponent } from './modules/public/template/graph-chart/graph-chart.component';
@@ -32,13 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

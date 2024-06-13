@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../../../helpers/storage.service'
-import { AuthService } from '../../../../helpers/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -12,12 +10,10 @@ export class HeaderComponent implements OnInit {
 
   public _storageService: Boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private storageService: StorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this._storageService = this.storageService.isLoggedIn();
+    //this._storageService = this.storageService.isLoggedIn();
   }
 
   /**
@@ -25,7 +21,7 @@ export class HeaderComponent implements OnInit {
    */
   logout(): void {
 
-    this.authService.logout();
+    //this.authService.logout();
   }
 
 }

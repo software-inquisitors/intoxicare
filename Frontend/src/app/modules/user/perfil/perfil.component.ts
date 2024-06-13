@@ -4,11 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpsServiceService } from '../../../services/https-service.service'
 import { switchMap } from 'rxjs/operators';
 
-/**
- * 
- */
-declare const M: any;
-
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -33,8 +28,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
 
-    M.AutoInit();
-
   }
 
   savePerfil(perfilObject: PerfilComponent) {
@@ -44,6 +37,6 @@ export class PerfilComponent implements OnInit {
       this.perfil = response.data;
       console.log(this.perfil)
     });
-  } 
+  }
 
 }
